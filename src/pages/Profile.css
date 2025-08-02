@@ -1,0 +1,228 @@
+/* ========================================================== */
+/* ========= NEW & IMPRESSIVE PROFILE STYLES ========= */
+/* ========================================================== */
+
+/* Use CSS variables for easy theming */
+:root {
+  --bg-color: #f8f9fa;
+  --card-bg: #ffffff;
+  --text-primary: #212529;
+  --text-secondary: #495057;
+  --border-color: #e9ecef;
+  --accent-color: #007bff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-color-hover: rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --card-bg: #1e1e1e;
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --border-color: #333333;
+  --accent-color: #64b5f6;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --shadow-color-hover: rgba(0, 0, 0, 0.6);
+}
+
+/* Profile Container */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 80px 20px;
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+/* Profile Card */
+.profile-card {
+  background-color: var(--card-bg);
+  padding: 50px 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px var(--shadow-color);
+  max-width: 800px;
+  width: 100%;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.8s ease-in-out both;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px var(--shadow-color-hover);
+}
+
+/* Keyframe Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Headings */
+.profile-card h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 25px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.profile-card h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+
+/* Profile Sections */
+.username-section, .email-section, .address-section {
+  margin-top: 30px;
+  padding: 20px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.username-section:first-of-type {
+    margin-top: 0;
+    border-top: none;
+}
+
+.profile-item h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+/* Paragraphs and Text */
+
+.profile-details{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.profile-details p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.profile-details strong {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-right: 8px;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 5px solid var(--accent-color);
+  object-fit: cover;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-avatar.clickable:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+/* Edit and Save Buttons */
+.edit-btn, .save-btn, .cancel-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  border: none;
+}
+
+.edit-btn {
+  background-color: transparent;
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+}
+
+.edit-btn:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+.save-btn {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+.save-btn:hover {
+  background-color: #0056b3;
+}
+
+.cancel-btn {
+  background-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
+.cancel-btn:hover {
+  background-color: #ced4da;
+}
+
+.username-form, .address-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--text-primary);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .profile-card {
+    padding: 30px 20px;
+    border-radius: 15px;
+  }
+  
+  .profile-card h2 {
+    font-size: 1.8rem;
+  }
+  
+  .profile-card h3 {
+    font-size: 1.3rem;
+  }
+  
+  .profile-details p {
+    font-size: 0.9rem;
+  }
+}
