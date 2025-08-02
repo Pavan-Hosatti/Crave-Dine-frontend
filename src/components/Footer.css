@@ -1,0 +1,158 @@
+/* src/components/Footer.css */
+
+/* Footer Section */
+.footer-section {
+  background-color: #2b2b2b; /* Smooth dark grey */
+  color: #cccccc;
+  padding: 60px 0;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Footer container with left-right spread */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+/* Columns */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+}
+
+/* Left Column: Contact Info */
+.contact-info {
+  flex: 1;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.contact-icon {
+  background-color: #333333;
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  margin-right: 15px;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contact-icon:hover {
+  background-color: #444444;
+  transform: scale(1.05);
+}
+
+.contact-text {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #cccccc;
+}
+
+.contact-text a {
+  color: #cccccc;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.contact-text a:hover {
+  color: #ffffff;
+}
+
+/* Right Column: About + Socials */
+.about-company-heading {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.about-company-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #cccccc;
+  margin-bottom: 30px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons a {
+  background-color: #333333;
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.social-icons a:hover {
+  background-color: #444444;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 20px;
+  }
+
+  .footer-col {
+    max-width: 100%;
+  }
+
+  .contact-item {
+    margin-bottom: 20px;
+  }
+
+  .contact-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 1.1rem;
+    margin-right: 10px;
+  }
+
+  .contact-text,
+  .about-company-text {
+    font-size: 0.95rem;
+  }
+
+  .about-company-heading {
+    font-size: 1.1rem;
+  }
+
+  .social-icons a {
+    width: 35px;
+    height: 35px;
+    font-size: 1.1rem;
+  }
+}

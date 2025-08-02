@@ -1,0 +1,75 @@
+/* src/components/CartIcon.css */
+
+.cart-icon-container {
+  position: fixed;
+  bottom: 30px; /* Adjust as needed */
+  right: 30px; /* Adjust as needed */
+  background-color: #ff6347; /* Tomato red */
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 1000; /* Ensure it's above other content */
+  border: 2px solid rgba(255, 255, 255, 0.5); /* Subtle white border */
+}
+
+.cart-icon-container:hover {
+  background-color: #e55333; /* Darker red on hover */
+  transform: translateY(-5px) scale(1.05); /* Lift and slightly enlarge */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cart-icon {
+  font-size: 28px; /* Adjust icon size */
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #4CAF50; /* Green for badge */
+  color: white;
+  border-radius: 50%;
+  padding: 4px 8px;
+  font-size: 0.8em;
+  font-weight: bold;
+  min-width: 25px; /* Ensure it's round even with single digit */
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  animation: popInBadge 0.3s ease-out; /* Pop-in animation for badge */
+}
+
+@keyframes popInBadge {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cart-icon-container {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+  }
+  .cart-icon {
+    font-size: 24px;
+  }
+  .cart-badge {
+    padding: 3px 7px;
+    font-size: 0.75em;
+    min-width: 22px;
+  }
+}

@@ -1,0 +1,201 @@
+/* src/components/Auth/Auth.css */
+
+/* ============================
+    🌟 Premium Auth Card Design
+=============================== */
+
+/* Overall Container */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 60px); /* Adjust for navbar height */
+  background: linear-gradient(135deg, #f8f9fa, #e8f0fe); /* Soft, modern gradient background */
+  padding: 30px 20px; /* Added padding for responsiveness */
+  font-family: 'Inter', sans-serif;
+  overflow: hidden; /* Prevent scroll issues from animations */
+}
+
+/* Auth Card (Main Form Wrapper) */
+.auth-card {
+  width: 100%;
+  max-width: 400px; /* Consistent max-width */
+  background: white;
+  padding: 35px 30px; /* Generous padding */
+  border-radius: 16px; /* Modern rounded corners */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* Soft, deep shadow */
+  transition: all 0.3s ease-in-out; /* Smooth transitions for any state changes */
+  animation: fadeIn 0.8s ease-out forwards; /* Entrance animation */
+  opacity: 0; /* Initial state for animation */
+  transform: translateY(15px); /* Initial state for animation */
+}
+
+/* Keyframe for card entrance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Heading */
+.auth-card h2 {
+  text-align: center;
+  color: #2c3e50; /* Darker, professional text color */
+  margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 1.6rem; /* Adjusted font size */
+  letter-spacing: 0.5px;
+}
+
+/* Social Buttons Container */
+.oauth-pair {
+  display: flex;
+  gap: 12px; /* Space between buttons */
+  margin-bottom: 18px;
+  justify-content: space-between; /* Distribute buttons */
+}
+
+/* Individual Social Button */
+.oauth-btn {
+  flex: 1; /* Allows buttons to take equal width */
+  padding: 11px 14px;
+  border-radius: 10px; /* Rounded buttons */
+  background: #f9f9f9; /* Light background */
+  border: 1px solid #ccc; /* Subtle border */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Space between icon and text */
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease-in-out; /* Smooth hover effects */
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.oauth-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Google Button Specific Hover */
+.google-btn:hover {
+  background: #eaf3fe; /* Light blue background */
+  border-color: #007bff; /* Google blue border */
+  color: #007bff; /* Google blue text */
+}
+
+/* Microsoft Button Specific Hover (Placeholder) */
+.microsoft-btn:hover {
+  background: #f0f4fc;
+  border-color: #0a66c2;
+  color: #0a66c2;
+}
+
+/* Divider */
+.divider {
+  text-align: center;
+  color: #aaa; /* Lighter text */
+  font-size: 0.85rem;
+  margin: 22px 0; /* Vertical spacing */
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%; /* Length of the lines */
+  height: 1px;
+  background: #ddd; /* Light line color */
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+/* Form Inputs */
+.auth-form .form-group input { /* Target inputs inside auth-form */
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 14px; /* Space below each input */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: 0.3s;
+  background-color: #fcfcfc; /* Slightly off-white background */
+}
+
+.auth-form .form-group input:focus {
+  outline: none;
+  border-color: #007bff; /* Blue focus border */
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1); /* Soft blue glow */
+  background: white;
+}
+
+/* Submit button */
+.submit-btn {
+  width: 100%;
+  background: linear-gradient(to right, #007bff, #3399ff); /* Blue gradient */
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  letter-spacing: 0.4px;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(to right, #0056b3, #2a83e8); /* Darker blue on hover */
+}
+
+/* Redirect text (e.g., "Already have an account? Login") */
+.redirect-text {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #555;
+}
+
+.redirect-text a {
+  color: #007bff; /* Blue link */
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.redirect-text a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive layout for buttons */
+@media (max-width: 500px) {
+  .oauth-pair {
+    flex-direction: column; /* Stack social buttons vertically */
+    gap: 10px;
+  }
+}
+
+/* Smaller screen adjustments for the card itself */
+@media (max-width: 500px) {
+  .auth-card {
+    padding: 28px 20px;
+    border-radius: 12px;
+  }
+
+  .auth-card h2 {
+    font-size: 1.3rem;
+  }
+}

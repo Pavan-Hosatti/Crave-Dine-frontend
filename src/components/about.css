@@ -1,0 +1,133 @@
+
+/* src/pages/About.css */
+
+/* Light Mode Defaults */
+.about {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+  font-family: 'Inter', sans-serif;
+  color: #2e0404;
+}
+
+.about .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.about .banner {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about .banner .top {
+  margin-bottom: 20px;
+}
+
+.about .banner .top .heading {
+  font-size: 2.8rem;
+  color: #030303;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.about .banner .top p {
+  font-size: 1.2rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.about .banner .mid {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #0c0c0c;
+  margin-bottom: 30px;
+}
+
+.about .banner a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #007bff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.about .banner a:hover {
+  color: #0056b3;
+}
+
+.about .banner img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 💡 Clean & Readable Dark Mode */
+body.dark-mode .about {
+  background-color: #0f0f0f;
+  color: #ffffff;
+}
+
+body.dark-mode .about .container {
+  background-color: transparent;
+}
+
+body.dark-mode .about .banner .top .heading {
+  color: hsl(220, 6%, 90%);
+}
+
+body.dark-mode .about .banner .top p {
+  color: #edf0f3;
+}
+
+body.dark-mode .about .banner .mid {
+  color: #dbff12;
+}
+
+body.dark-mode .about .banner a {
+  color: #e9ebed;
+}
+
+body.dark-mode .about .banner a:hover {
+  color: #010000;
+}
+
+body.dark-mode .about .banner img {
+  filter: brightness(1) contrast(1.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about .container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .about .banner .top .heading {
+    font-size: 2.2rem;
+  }
+  .about .banner .top p {
+    font-size: 1rem;
+  }
+  .about .banner .mid {
+    font-size: 0.9rem;
+    
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 50px 0;
+  }
+  .about .banner .top .heading {
+    font-size: 1.8rem;
+  }
+}
