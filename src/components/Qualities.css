@@ -1,0 +1,170 @@
+/* 🌞 Light Mode Default */
+.qualities {
+  padding: 100px 0;
+  margin-top: 80px;
+  background-color: #f8f9fa;
+  font-family: 'Inter', sans-serif;
+  border-top: 1px solid #e0e0e0;
+}
+
+.qualities-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px 32px;
+  background: linear-gradient(135deg, #ff512f, #dd2476);
+  border-radius: 20px;
+  margin: 0 auto 60px;
+  box-shadow: 0 6px 20px rgba(221, 36, 118, 0.4);
+  position: relative;
+  overflow: hidden;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+}
+
+
+/* 🌟 Cool Heading Box */
+.qualities-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px 32px;
+  background: linear-gradient(135deg, #ff512f, #dd2476);
+  border-radius: 20px;
+  margin: 0 auto 60px;
+  box-shadow: 0 6px 20px rgba(221, 36, 118, 0.4);
+  position: relative;
+  overflow: hidden;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+}
+
+
+.qualities-heading h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.qualities-heading .subtitle {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffe;
+  opacity: 0.9;
+  position: relative;
+  z-index: 2;
+}
+
+.qualities-heading .shine {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15), transparent 60%);
+  animation: shimmer 3s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1.2);
+  }
+}
+
+/* Cards Layout */
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+/* Card Styles */
+.card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.card:hover {
+  transform: rotateY(8deg) rotateX(4deg);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #222;
+}
+
+.description {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+
+
+/* 🌙 Dark Mode */
+body.dark-mode .qualities {
+  background-color: #0e0e0e;
+  color: #ffffff;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .qualities-heading {
+  background: linear-gradient(135deg, #00f5c4, #00d2ff);
+  box-shadow: 0 8px 20px rgba(0, 213, 255, 0.4);
+}
+
+body.dark-mode .qualities-heading h2,
+body.dark-mode .qualities-heading .subtitle {
+  color: #000;
+  opacity: 0.85;
+}
+
+body.dark-mode .card {
+  background-color: #1a1a1a;
+  box-shadow: 0 4px 10px rgba(0, 255, 255, 0.08);
+}
+
+body.dark-mode .card:hover {
+  transform: rotateY(8deg) rotateX(4deg);
+  box-shadow: 0 12px 24px rgba(0, 255, 255, 0.15);
+}
+
+body.dark-mode .title {
+  color: #ffffff;
+}
+
+body.dark-mode .description {
+  color: #d0d0d0;
+}

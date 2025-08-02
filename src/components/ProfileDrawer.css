@@ -1,0 +1,45 @@
+.profile-drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+}
+
+.profile-drawer-overlay.open {
+  display: block;
+}
+
+.profile-drawer-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  max-width: 90%;
+  height: 100%;
+  background: #fff;
+  overflow-y: auto;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 10000;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.drawer-close {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.drawer-body {
+  padding-top: 20px;
+}
