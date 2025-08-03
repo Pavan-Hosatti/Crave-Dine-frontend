@@ -4,7 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import './Dashboard.css';
 
-const BASE_URL = import.meta.env.VITE_REACT_APP_API_URL;
+// Utility function to ensure BASE_URL is clean
+const normalizeBaseUrl = (url) => {
+  if (!url) return '';
+  return url.endsWith('/') ? url.slice(0, -1) : url;
+};
+
+const RAW_BASE_URL = import.meta.env.VITE_REACT_APP_API_URL;
+const BASE_URL = normalizeBaseUrl(RAW_BASE_URL); // Use the normalized URL
 
 const Dashboard = () => {
   const { user, logout, isAuthenticated, setAuthUser } = useAuth();
@@ -93,8 +100,10 @@ const Dashboard = () => {
       const data = await res.json();
       if (!res.ok) throw new Error(data.message);
       setReservations(data.reservations || []);
+      console.log('DEBUG: Fetched reservations:', data.reservations); // Log fetched data
     } catch (err) {
       toast.error(err.message);
+      console.error('DEBUG: Error fetching reservations:', err); // Log error
     } finally {
       setLoadingReservations(false);
     }
@@ -111,8 +120,10 @@ const Dashboard = () => {
       const data = await res.json();
       if (!res.ok) throw new Error(data.message);
       setOrders(data.orders || []);
+      console.log('DEBUG: Fetched orders:', data.orders); // Log fetched data
     } catch (err) {
       toast.error(err.message);
+      console.error('DEBUG: Error fetching orders:', err); // Log error
     } finally {
       setLoadingOrders(false);
     }
@@ -207,6 +218,33 @@ const Dashboard = () => {
       toast.error(err.message);
     }
   };
+
+  // Assuming you have a way to get the reservation ID from the UI to update it
+  // This is a hypothetical function for updating a single reservation
+  const updateSingleReservation = async (reservationId, updatedData) => {
+    const token = localStorage.getItem('jwtToken');
+    try {
+      const res = await fetch(`${BASE_URL}/api/v1/reservation/${reservationId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(updatedData),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        toast.success('Reservation updated successfully!');
+        // ✅ CRITICAL FIX: Re-fetch reservations to update the UI
+        fetchReservations();
+      } else {
+        toast.error(data.message || 'Failed to update reservation.');
+      }
+    } catch (err) {
+      toast.error(err.message || 'An error occurred while updating reservation.');
+    }
+  };
+
 
   const deleteAccount = async () => {
     const confirmDelete = window.confirm("Are you sure you want to delete your account? This action cannot be undone.");
@@ -335,7 +373,7 @@ const Dashboard = () => {
 
           resolve("🗑️ All your past orders have been cleared!");
           // FIX: Re-fetch orders after clearing to update the UI
-          fetchOrders(); 
+          fetchOrders();
         } catch (err) {
           reject(err);
         }
@@ -351,6 +389,12 @@ const Dashboard = () => {
         },
       }
     );
+  };
+
+  // ✅ NEW: Function to be called from the reservation booking component after successful creation
+  const handleReservationCreated = () => {
+    console.log('DEBUG: handleReservationCreated called, re-fetching reservations...');
+    fetchReservations(); // Trigger a re-fetch of reservations
   };
 
   // Function to handle tab clicks
@@ -383,9 +427,11 @@ const Dashboard = () => {
                       <h3>{r.firstName} {r.lastName}</h3>
                       <p><strong>Date:</strong> {r.date} at {r.time}</p>
                       <p><strong>Contact:</strong> {r.email} | {r.phone}</p>
+                      {/* If you add an edit button here, it would call updateSingleReservation */}
+                      {/* Example: <button onClick={() => updateSingleReservation(r._id, { date: 'new date' })}>Edit</button> */}
                     </div>
                   ))
-                  
+
                 )}
               </div>
             )}
@@ -679,5 +725,6 @@ const Dashboard = () => {
     </div>
   );
 };
+
 
 export default Dashboard;
